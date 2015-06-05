@@ -23,7 +23,7 @@ Then, from this repo, copy **nfshunt.py** into **pox/ext/** and copy **nfshunt.j
 For Debian/Ubuntu, run: `sudo apt-get install conntrack`
 
 ## Create a Linux standard kernel bridge
-For Debian/Ubuntu, add a section to */etc/network/interfaces*:
+For Debian/Ubuntu, add a section to **/etc/network/interfaces**:
 ```
 auto br0
 iface br0 inet manual
