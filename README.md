@@ -33,21 +33,21 @@ iface br0 inet manual
         bridge_fd 0          # no forwarding delay
 ```
 
-You may need to change the bride interface name, depending on your system. This example assumes `eth1` and `eth2` are being used for the firewall. Remember to adjust the MTU of the bridge and bridge ports as required, and depending on the distro, enable IP forwarding, and netfilter processing for bridged traffic (this is not needed for debian/ubuntu). Finally, remember to bring the interface up with: `ifup br0`
+You may need to change the bridge interface name, depending on your system. This example assumes `eth1` and `eth2` are being used for the firewall. Remember to adjust the MTU of the bridge and bridge ports as required, and depending on the distro, enable IP forwarding, and netfilter processing for bridged traffic (not needed by default on Debian/Ubuntu). Finally, remember to bring the interface up with: `ifup br0`
 
 # OpenFlow configuration
 
-Set up an OF switch instance with the slow path host as controller (TCP port 6633). Two external swith ports are *fast*, and two ports connected to the host are those configured in the kernel bridge above, are the *slow* ports.
+Set up an OpenFlow switch instance with the slow path host as controller (TCP port 6633). Two external swith ports are *fast*, and two ports connected to the host are those configured in the kernel bridge above, are the *slow* ports.
 
 # NFShunt configuration
 
-* Edit **nfshunt.json**, pair up the external (*fast*) OF switch ports with *slow path* ports. The `physdevin` numbers match the OF port connected to the host to the Netfilter bridge physical ports.
+* Edit **nfshunt.json**, pair up the external (*fast*) OpenFlow switch ports with *slow path* ports. The `physdevin` numbers match the OpenFlow port connected to the host to the Netfilter bridge physical ports.
 
 * Edit **setup_iptables.sh**, set the interface names (change `eth1` and `eth2` if required), and also interfaces that need to be ignored (such as `eth0`).
 
 # Running
 
-The **run.sh** scripts starts up pox with the nfshunt module, and **debug.sh** does the same, but is more verbose. You should see the OF switch connect, and the code fork a copy of conntrack to receive connection tracking events. Now a TCP connection matching your policy (configured via **setup_iptables.sh**) will trigger the controller to bypass (or blackhole) the flow.
+The **run.sh** scripts starts up pox with the nfshunt module, and **debug.sh** does the same, but is more verbose. You should see the OpenFlow switch connect, and the code fork an instance of `conntrack` to monitor Netflow connection tracking events. Now TCP connections matching your policy (configured via **setup_iptables.sh**) will trigger the controller to bypass (or blackhole).
 
 # Copyright and license
 This code is copyright 2014-2015 the CSIR, and released under [the Apache 2.0 license](LICENSE).
