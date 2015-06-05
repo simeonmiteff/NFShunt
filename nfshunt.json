@@ -1,0 +1,23 @@
+{
+	"delete_flows_on_startup": true,
+	"default_shunt_timeout":10,
+	"default_block_timeout":10,
+	"default_no_shunting":true,
+	"ports":[
+			{
+				"fast":49,
+				"slow":10,
+				"physdevin":1
+			},
+			{
+				"fast":50,
+				"slow":11,
+				"physdevin":2
+			}
+	],
+	"mark_actions":{
+			"0":"ignore",
+			"1":"shunt",
+			"2":"block"
+	}
+}
