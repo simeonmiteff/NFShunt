@@ -20,10 +20,10 @@ tar -xzf carp.tgz -C pox --strip-components=1
 Then, from this repo, copy **nfshunt.py** into **pox/ext/** and copy **nfshunt.json** into **pox/**
  
 ## Install conntrack userspace utility
-For Debian/Ubuntu, run: `apt-get install conntrack`
+For Debian/Ubuntu, run: `sudo apt-get install conntrack`
 
 ## Create a Linux standard kernel bridge
-For Debian/Ubuntu, add a section to `/etc/network/interfaces`:
+For Debian/Ubuntu, add a section to */etc/network/interfaces*:
 ```
 auto br0
 iface br0 inet manual
