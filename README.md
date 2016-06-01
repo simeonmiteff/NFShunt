@@ -1,14 +1,14 @@
 # NFShunt
-NFShunt is an OpenFlow controller integrated with Linux’s Netfilter connection tracking. It allows L2 bridged TCP connections to be accellerated (bypass switched) mid-connection via a hardware data-plane, based on policy expressed as part of a stateful iptables firewall rule-set.
+NFShunt is an OpenFlow controller integrated with Linux’s Netfilter connection tracking. It allows L2 bridged TCP connections to be accelerated (bypass switched) mid-connection via a hardware data-plane, based on policy expressed as part of a stateful iptables firewall rule-set.
 
-This code is a proof-of-concept for a project I worked for [SANReN](http://www.sanren.ac.za) and was the research topic for my MSc studies at [WITS University](http://www.wits.ac.za). The idea is to enhance the [Science DMZ](https://fasterdata.es.net/science-dmz/) design without abandoning stateful filtering entirely. In some ways it is similar to [SciPass](http://globalnoc.iu.edu/sdn/scipass.html) (with a focus on tight integration with a firewall, instead of an intrusion detection system).
+This code is the proof-of-concept for a project I worked on at [SANReN](http://www.sanren.ac.za) and was the research topic for my MSc dissertation at [WITS University](http://www.wits.ac.za). The idea is to enhance the [Science DMZ](https://fasterdata.es.net/science-dmz/) design without abandoning stateful filtering entirely. In some ways it is similar to [SciPass](http://globalnoc.iu.edu/sdn/scipass.html) (with a focus on tight integration with a firewall, instead of an intrusion detection system).
 
 Note: this code is distributed without warranties of any kind. It has been tested in our lab with a Pica8 P-3290 switch, and on Mininet with OVS, but [YMMV](http://en.wiktionary.org/wiki/your_mileage_may_vary).
 
 For questions or comments, please drop me an email at <simeon.miteff@gmail.com>
 
 # NFShunt paper
-I published a paper on NFShunt at the [IEEE NFV-SDN 2015 conference](http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=7377719). You can download the IEEE _published_ version [here](http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7387413&tag=1) or get the _accepted_ version from included in the repository [here](nfshunt_paper.pdf).
+I presented a paper on NFShunt at the [IEEE NFV-SDN 2015 conference](http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=7377719). You can download the IEEE _published_ version [here](http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7387413&tag=1) or get the _accepted_ version from included in the repository [here](nfshunt_paper.pdf).
 
 ## Citation
 Please use the following BibTeX entry to cite NFShunt:
@@ -58,7 +58,7 @@ tar -xzf carp.tgz -C pox --strip-components=1
 
 Then, from this repo, copy **nfshunt.py** into **pox/ext/** and copy **nfshunt.json** into **pox/**
 
-## Install conntrack userspace utility
+## Install conntrack user-space utility
 For Debian/Ubuntu, run: `sudo apt-get install conntrack`
 
 ## Create a Linux standard kernel bridge
@@ -72,11 +72,11 @@ iface br0 inet manual
         bridge_fd 0          # no forwarding delay
 ```
 
-You may need to change the bridge interface name, depending on your system. This example assumes `eth1` and `eth2` are being used for the firewall. Remember to adjust the MTU of the bridge and bridge ports as required, and depending on the distro, enable IP forwarding, and netfilter processing for bridged traffic (not needed by default on Debian/Ubuntu). Finally, remember to bring the interface up with: `ifup br0`
+You may need to change the bridge interface name, depending on your system. This example assumes `eth1` and `eth2` are being used for the firewall. Remember to adjust the MTU of the bridge and bridge ports as required, and (depending on the Linux distribution used) enable IP forwarding and netfilter processing for bridged traffic (not needed by default on Debian/Ubuntu). Finally, remember to bring the interface up with: `ifup br0`
 
 # OpenFlow configuration
 
-Set up an OpenFlow switch instance with the slow path host as controller (TCP port 6633). Two external swith ports are *fast*, and two ports connected to the host are those configured in the kernel bridge above, are the *slow* ports.
+Set up an OpenFlow switch instance with the slow path host as controller (TCP port 6633). Two external switch ports are *fast*, and two ports connected to the host are those configured in the kernel bridge above, are the *slow* ports.
 
 # NFShunt configuration
 
