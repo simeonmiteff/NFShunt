@@ -16,13 +16,32 @@ Please use the following BibTeX entry to cite NFShunt:
 ``` TeX
 @INPROCEEDINGS{Mite1511:NFShunt,
   AUTHOR="Simeon Miteff and Scott HazelHurst",
-  TITLE="{NFShunt:} a Linux firewall with {OpenFlow-enabled} hardware bypass", BOOKTITLE="2015 IEEE Conference on Network Function Virtualization and Software Defined Network (NFV-SDN) (NFV-SDN'15)",
+  TITLE="{NFShunt:} a Linux firewall with {OpenFlow-enabled} hardware bypass",
+  BOOKTITLE="2015 IEEE Conference on Network Function Virtualization and
+  Software Defined Network (NFV-SDN) (NFV-SDN'15)",
   ADDRESS="San Francisco, USA",
   PAGES="102-108",
   DAYS=18, MONTH=nov,
   YEAR=2015,
   KEYWORDS="Firewall;OpenFlow;Fast Data Transfer",
-  ABSTRACT="Data-intensive research computing requires the capability to transfer files over long distances at high throughput. Stateful firewalls introduce sufficient packet loss to prevent researchers from fully exploiting high bandwidth-delay network links [ESNet 2015]. To work around this challenge, the Science DMZ design [E. Dart et al. 2014] trades off stateful packet filtering capability for loss-free forwarding via an ordinary Ethernet switch. We propose a novel extension to the Science DMZ design, which uses an SDN-based firewall. This paper introduces NFShunt: a firewall based on Linux's Netfilter combined with OpenFlow switching. Implemented as an OpenFlow 1.0 controller coupled to Netfilter's connection tracking, NFShunt allows the bypass-switching policy to be expressed as part of an iptables firewall rule-set. Our implementation is described in detail, and latency of the control-plane mechanism is reported. TCP throughput and packet loss is shown at various round-trip latencies, with comparisons to pure switching, as well as to a high-end Cisco firewall. The results support reported observations regarding firewall introduced packet-loss, and indicate that the SDN design of NFShunt is a viable approach to enhancing a traditional firewall to meet the performance needs of data-intensive researchers."
+  ABSTRACT="Data-intensive research computing requires the capability to
+  transfer files over long distances at high throughput. Stateful firewalls
+  introduce sufficient packet loss to prevent researchers from fully exploiting
+  high bandwidth-delay network links [ESNet 2015]. To work around this
+  challenge, the Science DMZ design [E. Dart et al. 2014] trades off stateful
+  packet filtering capability for loss-free forwarding via an ordinary Ethernet
+  switch. We propose a novel extension to the Science DMZ design, which uses an
+  SDN-based firewall. This paper introduces NFShunt: a firewall based on Linux's
+  Netfilter combined with OpenFlow switching. Implemented as an OpenFlow 1.0
+  controller coupled to Netfilter's connection tracking, NFShunt allows the
+  bypass-switching policy to be expressed as part of an iptables firewall
+  rule-set. Our implementation is described in detail, and latency of the
+  control-plane mechanism is reported. TCP throughput and packet loss is shown
+  at various round-trip latencies, with comparisons to pure switching, as well
+  as to a high-end Cisco firewall. The results support reported observations
+  regarding firewall introduced packet-loss, and indicate that the SDN design of
+  NFShunt is a viable approach to enhancing a traditional firewall to meet the
+  performance needs of data-intensive researchers."
 }
 ```
 
