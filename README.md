@@ -14,14 +14,16 @@ I published a paper on NFShunt at the [IEEE NFV-SDN 2015 conference](http://ieee
 Please use the following BibTeX entry to cite NFShunt:
 
 ``` TeX
-@INPROCEEDINGS{Mite1511:NFShunt,
+@INPROCEEDINGS{
+  Mite1511:NFShunt,
   AUTHOR="Simeon Miteff and Scott HazelHurst",
   TITLE="{NFShunt:} a Linux firewall with {OpenFlow-enabled} hardware bypass",
   BOOKTITLE="2015 IEEE Conference on Network Function Virtualization and
   Software Defined Network (NFV-SDN) (NFV-SDN'15)",
   ADDRESS="San Francisco, USA",
   PAGES="102-108",
-  DAYS=18, MONTH=nov,
+  DAYS=18,
+  MONTH=nov,
   YEAR=2015,
   KEYWORDS="Firewall;OpenFlow;Fast Data Transfer",
   ABSTRACT="Data-intensive research computing requires the capability to
